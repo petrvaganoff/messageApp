@@ -17,7 +17,7 @@ Item {
             Layout.preferredHeight: parent.height * 0.7
             Layout.preferredWidth: height
             icon.color: "#132236"
-            icon.source: "../../Media/Images/arrowLeft.svg"
+            icon.source: "../../Assets/Icons/arrowLeft.svg"
             onClicked: mainStack.pop();
         }
         Item{ Layout.fillWidth: true; }
@@ -60,7 +60,7 @@ Item {
             Layout.preferredHeight: parent.height * 0.7
             Layout.preferredWidth: height
             icon.color: "#132236"
-            icon.source: "../../Media/Images/options.svg"
+            icon.source: "../../Assets/Icons/options.svg"
             onClicked: {
                 console.log("option_button clicked!");
             }

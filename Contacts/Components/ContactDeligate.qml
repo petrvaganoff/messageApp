@@ -6,25 +6,16 @@ Rectangle {
     color: "transparent"
     radius: 10
 
-    property var contactData: contactListView.model[index]
+    required property var modelData
+    property var contactData: modelData
+    readonly property var lastMessage: contactData.messages.count > 0 ? contactData.messages.at(contactData.messages.count - 1) : null
 
     Rectangle{
         id: hoverBackground
         height: parent.height
         width: mouseArea.containsMouse ? parent.width : 0
-        anchors.left: parent.left; // anchors.leftMargin: profileImage.width/2
+        anchors.left: parent.left;
         opacity: 0.1
-        // Behavior on width {
-        //     SmoothedAnimation{
-        //         duration: 100
-        //     }
-        // }
-        // gradient: Gradient{
-        //     GradientStop{ position: 0.0; color: "transparent" }
-        //     GradientStop{ position: 0.1; color: "#aaa"; }
-        //     GradientStop{ position: 0.9; color: "#aaa"; }
-        //     GradientStop{ position: 1.0; color: "transparent" }
-        // }
     }
 
     RowLayout{
@@ -39,28 +30,7 @@ Rectangle {
             Layout.preferredWidth: height
             asynchronous: true
             fillMode: Image.PreserveAspectCrop
-            // visible: false
         }
-
-        // // Хак для отображения маски
-        // Rectangle{ // невидимый приямоугольник как маска
-        //     id: mask
-        //     anchors.left: parent.left
-        //     width: height
-        //     height: parent.height
-        //     radius: 10
-        //     visible: false
-        //     smooth: true
-        // }
-        // MultiEffect{ // применение маски к картинке
-        //     id: maskedBackground
-        //     source: profileImage
-        //     anchors.fill: profileImage
-        //     maskEnabled: true
-        //     maskSource: ShaderEffectSource {
-        //         sourceItem: mask
-        //     }
-        // }
 
         ColumnLayout{
             Layout.fillWidth: true;
@@ -75,17 +45,15 @@ Rectangle {
                 font.pixelSize: 14
                 Layout.fillWidth: true
                 opacity: 0.8
-                // font.family: Poppins.bold
                 Layout.fillHeight: true
                 verticalAlignment: Qt.AlignBottom
             }
             Text{
-                text: contactData.messages.count === 0 ? "" : contactData.messages.at(contactData.messages.count - 1).contents
+                text: lastMessage === null ? "" : lastMessage.contents
                 color: "#FFF"
                 font.pixelSize: 12
                 Layout.fillWidth: true
                 opacity: 0.4
-                // font.family: Poppins.bold
                 Layout.fillHeight: true
                 verticalAlignment: Qt.AlignTop
                 elide: Text.ElideRight

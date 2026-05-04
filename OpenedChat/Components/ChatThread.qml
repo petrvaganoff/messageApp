@@ -15,7 +15,9 @@ Item {
         highlightFollowsCurrentItem: true
 
         onCountChanged: {
-            openedChatList.currentIndex = count - 1;
+            if (count > 0)
+                openedChatList.currentIndex = count - 1;
+            openedChatList.positionViewAtEnd();
         }
 
         delegate: ChatBubble{}

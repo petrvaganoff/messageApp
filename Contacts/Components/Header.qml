@@ -48,12 +48,11 @@ Item {
             id: optionsButton
             height: 40
             width: 40
-            text: "…"
             radius: 40
             Layout.alignment: Qt.AlignRight
             anchors.rightMargin: 10
             display: AbstractButton.IconOnly
-            icon.source: "../../Media/Images/search.svg"
+            icon.source: "../../Assets/Icons/options.svg"
             icon.color: "black"
             onClicked: {
                 console.log("optionsButton clicked!")
@@ -67,7 +66,7 @@ Item {
             radius: 40
             Layout.alignment: Qt.AlignRight
             display: AbstractButton.IconOnly
-            icon.source: "../../Media/Images/options.svg"
+            icon.source: "../../Assets/Icons/search.svg"
             icon.color: "black"
             onClicked: {
                 console.log("searchButton clicked!")

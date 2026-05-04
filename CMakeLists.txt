@@ -17,22 +17,22 @@ qt_add_qml_module(appmessageApp
     VERSION 1.0
     QML_FILES
         Main.qml
-        QML_FILES MainWindow.qml
-        QML_FILES Contacts/ContactsView.qml
-        QML_FILES Contacts/Components/Background.qml
-        QML_FILES Contacts/Components/Header.qml
-        QML_FILES Contacts/Components/ContactList.qml
-        QML_FILES Contacts/Components/ContactDeligate.qml
-        QML_FILES OpenedChat/OpenedChatView.qml
-        QML_FILES OpenedChat/Components/ChatInput.qml
-        QML_FILES OpenedChat/Components/ChatThread.qml
-        QML_FILES OpenedChat/Components/ChatBubble.qml
-        QML_FILES OpenedChat/Components/ChatHeader.qml
-        RESOURCES Media/Images/henry.jpg
-        RESOURCES Media/Images/benzema.jpg Media/Images/buffon.jpg Media/Images/gomez.jpg Media/Images/ibra.jpg Media/Images/messi.jpg Media/Images/nestelroy.jpg Media/Images/ronaldo.jpg Media/Images/rooney.jpg Media/Images/totti.jpg
-        RESOURCES Media/Images/options.svg Media/Images/background.png Media/Images/search.svg
-        RESOURCES Media/Images/send.svg
-        RESOURCES Media/Images/arrowLeft.svg
+        MainWindow.qml
+        Contacts/ContactsView.qml
+        Contacts/Components/Background.qml
+        Contacts/Components/Header.qml
+        Contacts/Components/ContactList.qml
+        Contacts/Components/ContactDeligate.qml
+        OpenedChat/OpenedChatView.qml
+        OpenedChat/Components/ChatInput.qml
+        OpenedChat/Components/ChatThread.qml
+        OpenedChat/Components/ChatBubble.qml
+        OpenedChat/Components/ChatHeader.qml
+        RESOURCES Assets/Images/ThierryHenry.jpg
+        RESOURCES Assets/Images/AndreyArshavin.jpeg
+        RESOURCES Assets/Images/KarimBenzema.jpg Assets/Images/GianluigiBuffon.jpg Assets/Images/SergioGomez.jpg Assets/Images/ZlatanIbrahimovic.jpg Assets/Images/LionelMessi.jpg Assets/Images/RoyMakaay.jpg Assets/Images/CristianoRonaldo.jpg Assets/Images/WayneRooney.jpg Assets/Images/FrancescoTotti.jpg
+        RESOURCES Assets/Images/Background.png
+        RESOURCES Assets/Icons/options.svg Assets/Icons/search.svg Assets/Icons/send.svg Assets/Icons/arrowLeft.svg
         SOURCES ApplicationManager.h ApplicationManager.cpp
         SOURCES User/Message.cpp User/Message.h User/User.cpp User/User.h
         SOURCES User/UserList.h User/UserList.cpp

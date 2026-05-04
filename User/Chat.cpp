@@ -4,11 +4,9 @@
 Chat::Chat(QObject *parent) :
     QObject(parent),
     m_userList(new UserList(this)),
-    //m_userProxyList(new UserProxyList(this)),
-    m_mainUser(new User(0, "Petr", "Vaganov", "", this)),
-    m_openedChatUser(Q_NULLPTR)
+    m_mainUser(new User(0, "Petr", "Vaganov", "qrc:/qt/qml/messageApp/Assets/Images/ThierryHenry.jpg", this)),
+    m_openedChatUser(nullptr)
 {
-    connect(this, &Chat::sendMessage, this, &Chat::onSendMessage, Qt::QueuedConnection);
 }
 
 UserList *Chat::userList() const
@@ -34,14 +32,9 @@ User *Chat::mainUser() const
     return m_mainUser;
 }
 
-void Chat::onSendMessage(const QString &message)
+void Chat::sendMessage(const QString &message)
 {
-    if(m_openedChatUser == Q_NULLPTR)
+    if (m_openedChatUser == nullptr)
         return;
     m_openedChatUser->addMessage(new Message(message, m_mainUser->ID(), m_openedChatUser));
 }
-
-// UserProxyList *Chat::userProxyList() const
-// {
-//     return m_userProxyList;
-// }

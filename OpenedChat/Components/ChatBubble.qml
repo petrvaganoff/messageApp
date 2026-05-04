@@ -2,13 +2,13 @@ import QtQuick 2.15
 import QtQuick.Controls 2.5
 
 Item {
+    id: bubbleRoot
     height: shouldShowTime ? bubble.height + 25 : bubble.height
     width: bubble.width
-    x: sender ? 0 : openedChatList.width - width // нужно ли или убрать?
-    // anchors.right: sender ? undefined : parent.right // тут ошибку выдает, но не падает
+    x: sender ? 0 : openedChatList.width - width
 
     readonly property bool sender: userID === Chat.mainUser.ID
-    property bool shouldShowTime: openedChatList.count - 1 === index ? true : userID !== Chat.mainUser.ID
+    readonly property bool shouldShowTime: openedChatList.count - 1 === index ? true : userID !== Chat.mainUser.ID
 
     Rectangle{
         id: bubble
@@ -46,5 +46,11 @@ Item {
         font.pixelSize: 10
         visible: shouldShowTime
         opacity: 0.3
+    }
+
+    MouseArea{
+        id: mouseArea
+        anchors.fill: bubble
+        hoverEnabled: true
     }
 }

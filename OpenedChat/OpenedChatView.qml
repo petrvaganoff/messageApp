@@ -23,4 +23,3 @@ Rectangle{
         ChatThread{ id: chatThread; }
     }
 }
-

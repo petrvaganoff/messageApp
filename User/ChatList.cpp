@@ -1,4 +1,5 @@
 #include "ChatList.h"
+#include <QtAlgorithms>
 
 ChatList::ChatList(QObject *parent)
     : QAbstractListModel(parent)
@@ -60,4 +61,30 @@ Message *ChatList::at(int index) const
         return nullptr;
 
     return m_messages.at(index);
+}
+
+bool ChatList::removeAt(int index)
+{
+    if (index < 0 || index >= m_messages.count())
+        return false;
+
+    beginRemoveRows(QModelIndex(), index, index);
+    delete m_messages.takeAt(index);
+    endRemoveRows();
+
+    emit countChanged();
+    return true;
+}
+
+void ChatList::clear()
+{
+    if (m_messages.isEmpty())
+        return;
+
+    beginResetModel();
+    qDeleteAll(m_messages);
+    m_messages.clear();
+    endResetModel();
+
+    emit countChanged();
 }

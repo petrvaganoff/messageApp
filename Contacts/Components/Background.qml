@@ -6,8 +6,7 @@ Rectangle {
     anchors.fill: parent
     radius: mainWindow.radius
 
-    // Хак для отображения маски
-    Rectangle{ // невидимый приямоугольник как маска
+    Rectangle{
         id: mask
         anchors.centerIn: parent
         color: "#b3b3b3"
@@ -16,15 +15,15 @@ Rectangle {
         radius: 40
         visible: false
     }
-    Image{ // невидимая картинка
+    Image{
         id: background
-        source: "../../Media/Images/background.png"
+        source: "../../Assets/Images/Background.png"
         anchors.fill: parent
         asynchronous: true
         fillMode: Image.Stretch
         visible: false
     }
-    MultiEffect{ // применение маски к картинке
+    MultiEffect{
         id: maskedBackground
         source: background
         anchors.fill: background

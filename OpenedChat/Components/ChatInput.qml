@@ -41,7 +41,7 @@ Rectangle {
         anchors.right: parent.right; anchors.verticalCenter: parent.verticalCenter
         anchors.rightMargin: 8
         icon.color: "#132236"
-        icon.source: "../../Media/Images/send.svg"
+        icon.source: "../../Assets/Icons/send.svg"
         anchors.leftMargin: 10
         display: AbstractButton.IconOnly
         onClicked: sendMessage();

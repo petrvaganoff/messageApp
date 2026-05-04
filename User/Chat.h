@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include "UserList.h"
-// #include "UserProxyList.h"
 
 class Chat : public QObject
 {
@@ -19,19 +18,13 @@ public:
     void setOpenedChatUser(User *newOpenedChatUser);
 
     User *mainUser() const;
-
-    // UserProxyList *userProxyList() const;
+    Q_INVOKABLE void sendMessage(const QString& message);
 
 signals:
     void openedChatUserChanged();
-    void sendMessage(const QString& message);
-
-public Q_SLOTS:
-    void onSendMessage(const QString& message);
 
 private:
     UserList* m_userList;
-    // UserProxyList* m_userProxyList;
     User* m_mainUser;
     User* m_openedChatUser;
 };

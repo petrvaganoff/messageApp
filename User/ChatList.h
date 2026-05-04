@@ -24,6 +24,8 @@ public:
 
     void append(Message* message);
     Q_INVOKABLE Message* at(int index) const;
+    Q_INVOKABLE bool removeAt(int index);
+    Q_INVOKABLE void clear();
 
 signals:
     void countChanged();
