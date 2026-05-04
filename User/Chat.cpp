@@ -1,0 +1,52 @@
+#include "Chat.h"
+#include "Message.h"
+#include "mathlib.h"
+
+using namespace std;
+
+Chat::Chat(QObject *parent) :
+    QObject(parent),
+    m_userList(new UserList(this)),
+    //m_userProxyList(new UserProxyList(this)),
+    m_mainUser(new User(0, "Petr", "Vaganov", "", this)),
+    m_openedChatUser(Q_NULLPTR)
+{
+    connect(this, &Chat::sendMessage, this, &Chat::onSendMessage, Qt::QueuedConnection);
+    add(5,4);
+    //m_userProxyList->setSourceModel(m_userList);
+}
+
+UserList *Chat::userList() const
+{
+    return m_userList;
+}
+
+User *Chat::openedChatUser() const
+{
+    return m_openedChatUser;
+}
+
+void Chat::setOpenedChatUser(User *newOpenedChatUser)
+{
+    if (m_openedChatUser == newOpenedChatUser)
+        return;
+    m_openedChatUser = newOpenedChatUser;
+    emit openedChatUserChanged();
+}
+
+User *Chat::mainUser() const
+{
+    return m_mainUser;
+}
+
+void Chat::onSendMessage(const QString &message)
+{
+    if(m_openedChatUser == Q_NULLPTR)
+        return;
+    m_openedChatUser->addMessage(new Message(message, m_mainUser->ID(), m_openedChatUser));
+}
+
+// UserProxyList *Chat::userProxyList() const
+// {
+//     return m_userProxyList;
+// }
