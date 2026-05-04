@@ -17,6 +17,15 @@ int ChatList::rowCount(const QModelIndex &parent) const
     return m_messages.count();
 }
 
+void ChatList::append(Message *message)
+{
+    beginInsertRows(QModelIndex(), m_messages.count(), m_messages.count());
+    m_messages.append(message);
+    endInsertRows();
+
+    emit countChanged();
+}
+
 QVariant ChatList::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
@@ -43,15 +52,6 @@ QHash<int, QByteArray> ChatList::roleNames() const
     roles[ContentsRole] = "contents";
 
     return roles;
-}
-
-void ChatList::append(Message *message)
-{
-    beginInsertRows(QModelIndex(), m_messages.count(), m_messages.count());
-    m_messages.append(message);
-    endInsertRows();
-
-    emit countChanged();
 }
 
 Message *ChatList::at(int index) const

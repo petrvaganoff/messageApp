@@ -15,7 +15,7 @@ public:
         ContentsRole
     };
 
-    ChatList(QObject* parent);
+    explicit ChatList(QObject* parent);
 
     int count() const;
     int rowCount(const QModelIndex &parent) const;

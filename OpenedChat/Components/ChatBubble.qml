@@ -7,9 +7,8 @@ Item {
     x: sender ? 0 : openedChatList.width - width // нужно ли или убрать?
     // anchors.right: sender ? undefined : parent.right // тут ошибку выдает, но не падает
 
-    readonly property var message: openedChatList.model[index]
-    readonly property bool sender: message.userID === Chat.mainUser.ID
-    property bool shouldShowTime: openedChatList.count - 1 === index ? true : openedChatList.model[index].userID !== Chat.mainUser.ID
+    readonly property bool sender: userID === Chat.mainUser.ID
+    property bool shouldShowTime: openedChatList.count - 1 === index ? true : userID !== Chat.mainUser.ID
 
     Rectangle{
         id: bubble
@@ -25,7 +24,7 @@ Item {
 
         Text{
             id: messageText
-            text: message.contents
+            text: contents
             anchors.fill: parent
             anchors.margins: 12
             wrapMode: Label.Wrap
@@ -40,7 +39,7 @@ Item {
         anchors.top: bubble.bottom; anchors.topMargin: 10
         anchors.right: sender ? undefined : parent.right
         horizontalAlignment: sender ? Qt.AlignLeft : Qt.AlignRight
-        text: message.time
+        text: time
         width: bubble.width
         height: 20
         color: "#FFF"

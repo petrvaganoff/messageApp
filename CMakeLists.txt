@@ -29,9 +29,7 @@ qt_add_qml_module(appmessageApp
         QML_FILES OpenedChat/Components/ChatBubble.qml
         QML_FILES OpenedChat/Components/ChatHeader.qml
         RESOURCES Media/Images/henry.jpg
-        RESOURCES Media/Images/cwd_bg.jpg
-        RESOURCES Media/Images/citizen.svg Media/Images/client.svg Media/Images/expert.svg Media/Images/infinity.svg Media/Images/start.svg
-        RESOURCES Media/Images/avatar.jpg Media/Images/benzema.jpg Media/Images/buffon.jpg Media/Images/gomez.jpg Media/Images/ibra.jpg Media/Images/messi.jpg Media/Images/nestelroy.jpg Media/Images/ronaldo.jpg Media/Images/rooney.jpg Media/Images/totti.jpg
+        RESOURCES Media/Images/benzema.jpg Media/Images/buffon.jpg Media/Images/gomez.jpg Media/Images/ibra.jpg Media/Images/messi.jpg Media/Images/nestelroy.jpg Media/Images/ronaldo.jpg Media/Images/rooney.jpg Media/Images/totti.jpg
         RESOURCES Media/Images/options.svg Media/Images/background.png Media/Images/search.svg
         RESOURCES Media/Images/send.svg
         RESOURCES Media/Images/arrowLeft.svg

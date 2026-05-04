@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include "Message.h"
-// #include "User/ChatList.h"
+#include "ChatList.h"
 
 class User : public QObject
 {
@@ -13,7 +13,7 @@ class User : public QObject
     Q_PROPERTY(QString lastName READ lastName CONSTANT)
     Q_PROPERTY(QString imageURL READ imageURL WRITE setImageURL NOTIFY imageURLChanged)
     Q_PROPERTY(bool isOnline READ isOnline WRITE setIsOnline NOTIFY isOnlineChanged)
-    Q_PROPERTY(QList<Message*> message READ message CONSTANT)
+    Q_PROPERTY(ChatList* messages READ messages CONSTANT)
 
 public:
     User(int id, const QString& name, const QString& lastName, const QString& imageURL, QObject* parent);
@@ -30,22 +30,18 @@ public:
 
     void addMessage(Message* message);
 
-    // ChatList *messages() const;
-    const QList<Message*> &message() const;
-    // void setMessages(QList<Message*> *newMessages);
+    ChatList *messages() const;
 
 signals:
     void imageURLChanged();
     void isOnlineChanged();
-    void messagesChanged();
 
 private:
     int m_ID;
     QString m_name;
     QString m_lastName;
     QString m_imageURL;
-    // ChatList* m_messages;
-    QList<Message*> m_messages;
+    ChatList* m_messages;
 
     bool m_isOnline;
 };
