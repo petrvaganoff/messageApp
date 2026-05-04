@@ -8,7 +8,7 @@ Item {
     // anchors.right: sender ? undefined : parent.right // тут ошибку выдает, но не падает
 
     readonly property var message: openedChatList.model[index]
-    readonly property bool sender: message.userID === chat.mainUser.ID
+    readonly property bool sender: message.userID === Chat.mainUser.ID
     property bool shouldShowTime: openedChatList.count - 1 === index ? true : openedChatList.model[index].userID !== Chat.mainUser.ID
 
     Rectangle{

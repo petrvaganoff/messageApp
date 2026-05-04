@@ -8,7 +8,7 @@ Item {
         id: openedChatList
         anchors.fill: parent
         anchors.margins: 16
-        model: Chat.openedChatUser.messages
+        model: Chat.openedChatUser ? Chat.openedChatUser.message : []
 
         spacing: 8
         clip: true

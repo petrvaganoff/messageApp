@@ -80,7 +80,7 @@ Rectangle {
                 verticalAlignment: Qt.AlignBottom
             }
             Text{
-                text: contactData.message.lenght === 0 ? "" : contactData.messages[contactData.message.lenght-1].contents
+                text: contactData.message.length === 0 ? "" : contactData.message[contactData.message.length - 1].contents
                 color: "#FFF"
                 font.pixelSize: 12
                 Layout.fillWidth: true

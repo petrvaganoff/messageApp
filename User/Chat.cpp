@@ -1,8 +1,6 @@
 #include "Chat.h"
 #include "Message.h"
 
-using namespace std;
-
 Chat::Chat(QObject *parent) :
     QObject(parent),
     m_userList(new UserList(this)),
@@ -11,7 +9,6 @@ Chat::Chat(QObject *parent) :
     m_openedChatUser(Q_NULLPTR)
 {
     connect(this, &Chat::sendMessage, this, &Chat::onSendMessage, Qt::QueuedConnection);
-    //m_userProxyList->setSourceModel(m_userList);
 }
 
 UserList *Chat::userList() const
