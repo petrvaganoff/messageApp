@@ -56,7 +56,6 @@ set_target_properties(appmessageApp PROPERTIES
 
 target_link_libraries(appmessageApp
     PRIVATE Qt6::Quick
-    PRIVATE /home/petr/messageApp/libmath.so
 )
 
 include(GNUInstallDirs)

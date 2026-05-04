@@ -1,6 +1,5 @@
 #include "Chat.h"
 #include "Message.h"
-#include "mathlib.h"
 
 using namespace std;
 
@@ -12,7 +11,6 @@ Chat::Chat(QObject *parent) :
     m_openedChatUser(Q_NULLPTR)
 {
     connect(this, &Chat::sendMessage, this, &Chat::onSendMessage, Qt::QueuedConnection);
-    add(5,4);
     //m_userProxyList->setSourceModel(m_userList);
 }
 
