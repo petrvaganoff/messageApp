@@ -39,7 +39,6 @@ qt_add_qml_module(appmessageApp
         SOURCES User/Message.cpp User/Message.h User/User.cpp User/User.h
         SOURCES User/UserList.h User/UserList.cpp
         SOURCES User/Chat.h User/Chat.cpp
-        SOURCES core/ComponentCreatorEngine.cpp core/ComponentCreatorEngine.h core/FileWatcher.cpp core/FileWatcher.h
         SOURCES User/ChatList.cpp User/ChatList.h
 )
 
